@@ -6,7 +6,7 @@
 /*   By: ysahraou <ysahraou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 10:20:50 by ysahraou          #+#    #+#             */
-/*   Updated: 2024/05/19 13:08:40 by ysahraou         ###   ########.fr       */
+/*   Updated: 2024/05/19 17:06:06 by ysahraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "../minilibx-linux/mlx.h"
 # include "../src_gnl/get_next_line.h"
+# include "../libft/libft.h"
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
@@ -35,6 +36,7 @@ typedef struct	s_param {
 	int		coin_c;
 }				t_param;
 
-
+int check_file(char *file_name);
+int cheack_wall(char **map, int map_height, int map_widht);
 
 #endif
