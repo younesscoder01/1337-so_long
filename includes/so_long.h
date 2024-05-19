@@ -6,7 +6,7 @@
 /*   By: ysahraou <ysahraou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 10:20:50 by ysahraou          #+#    #+#             */
-/*   Updated: 2024/05/16 16:58:58 by ysahraou         ###   ########.fr       */
+/*   Updated: 2024/05/19 12:26:14 by ysahraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ typedef struct	s_param {
 	void	*mlx_ptr;
 	void	*mlx_win;
 }				t_param;
-
 
 
 
