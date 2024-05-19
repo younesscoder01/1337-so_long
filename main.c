@@ -6,7 +6,7 @@
 /*   By: ysahraou <ysahraou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 10:20:41 by ysahraou          #+#    #+#             */
-/*   Updated: 2024/05/19 14:58:52 by ysahraou         ###   ########.fr       */
+/*   Updated: 2024/05/19 17:49:51 by ysahraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ int	get_map_widht(char *str_map)
 	int map_widht;
 
 	map_widht = 0;
-	while (str_map[map_widht])
+	while (str_map[map_widht] != '\n')
 		map_widht++;
-	return (map_widht-1);
+	return (map_widht);
 }
 
 char **get_map(char *path, char	**map)
@@ -101,6 +101,7 @@ void put_env(char **map, void	*mlx_ptr, void	*mlx_win, t_param *imgs)
 			else if (map[y][x] == 'P')
 			{
 				mlx_put_image_to_window(mlx_ptr, mlx_win, imgs->player, x * 34, y * 34);
+
 				imgs->p_x = x;
 				imgs->p_y = y;
 			}
@@ -214,18 +215,19 @@ int	main(int argc, char *argv[])
 	int		widht;
 	int		height;
 
-	if (argc != 2)
-		return (1);
-	check_file();
 	widht = 34;
 	height = 34;
-	if (argc < 2)
+	if (argc != 2)
 		return (1);
+	if (!check_file(argv[1]))
+		return(1);
 	map_height = get_map_height(argv[1]);
 	map = malloc(sizeof(char *) * map_height + 1);
 	map = get_map(argv[1], map);
 	param.map =	map;
 	map_widht = get_map_widht(map[0]);
+	if (!cheack_wall(map, map_height, map_widht))
+		return 13;
 	printf("h = %d  w = %d\n", map_height, map_widht);
 	param.mlx_ptr = mlx_init();
 	param.mlx_win = mlx_new_window(param.mlx_ptr, map_widht * 34, map_height * 34, "test_1");
