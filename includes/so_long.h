@@ -6,7 +6,7 @@
 /*   By: ysahraou <ysahraou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 10:20:50 by ysahraou          #+#    #+#             */
-/*   Updated: 2024/05/19 12:26:14 by ysahraou         ###   ########.fr       */
+/*   Updated: 2024/05/19 13:08:40 by ysahraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,15 @@ typedef struct	s_param {
 	void	*collectible;
 	void	*floor;
 	void	*exit;
+	void	*exit_m;
 	void	*mlx_ptr;
 	void	*mlx_win;
+	int		p_x;
+	int		p_y;
+	int		exit_x;
+	int		exit_y;
+	char	**map;
+	int		coin_c;
 }				t_param;
 
 
