@@ -6,7 +6,7 @@
 /*   By: ysahraou <ysahraou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 15:05:46 by ysahraou          #+#    #+#             */
-/*   Updated: 2024/05/19 18:15:15 by ysahraou         ###   ########.fr       */
+/*   Updated: 2024/05/20 14:29:03 by ysahraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,3 +61,22 @@ int cheack_wall(char **map, int map_height, int map_widht)
         return 1;
     return 0;
 }
+
+
+void flood_fill(char **map, int x, int y, int map_height, int map_widht)
+{
+    if (x < 0 || y < 0 || x >= map_widht || y >= map_height)
+        return;
+    if ('1' == map[y][x] || map[y][x] == 'G')
+        return;
+    map[y][x] = 'G';
+    flood_fill(map, x + 1, y, map_height, map_widht);
+    flood_fill(map, x - 1, y, map_height, map_widht);
+    flood_fill(map, x, y + 1, map_height, map_widht);
+    flood_fill(map, x, y - 1, map_height, map_widht);
+}
+
+// int check_f(char **map)
+// {
+    
+// }

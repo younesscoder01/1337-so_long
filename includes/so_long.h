@@ -6,7 +6,7 @@
 /*   By: ysahraou <ysahraou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 10:20:50 by ysahraou          #+#    #+#             */
-/*   Updated: 2024/05/19 17:06:06 by ysahraou         ###   ########.fr       */
+/*   Updated: 2024/05/20 11:22:17 by ysahraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,6 @@ typedef struct	s_param {
 
 int check_file(char *file_name);
 int cheack_wall(char **map, int map_height, int map_widht);
+void flood_fill(char **map, int x, int y, int map_height, int map_widht);
 
 #endif
