@@ -6,11 +6,11 @@
 /*   By: ysahraou <ysahraou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 15:05:46 by ysahraou          #+#    #+#             */
-/*   Updated: 2024/05/20 14:29:03 by ysahraou         ###   ########.fr       */
+/*   Updated: 2024/05/21 15:57:58 by ysahraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/so_long.h"
+#include "../includes/so_long.h"
 
 int check_file(char *file_name)
 {
@@ -76,7 +76,46 @@ void flood_fill(char **map, int x, int y, int map_height, int map_widht)
     flood_fill(map, x, y - 1, map_height, map_widht);
 }
 
-// int check_f(char **map)
-// {
-    
-// }
+int check_f(char **map)
+{
+    int x;
+    int y;
+
+    y = 0;
+    while (map[y])
+    {
+        x = 0;
+        while (map[y][x])
+        {
+            if (map[y][x] == 'P' || map[y][x] == 'C' || map[y][x] == 'E')
+               return (1);
+            x++;
+        }
+        y++;
+    }
+    return (0);
+}
+
+int get_p_xy(char **map, t_param *data)
+{
+    int x;
+    int y;
+
+    y = 0;
+    while (map[y])
+    {
+        x = 0;
+        while (map[y][x])
+        {
+            if (map[y][x] == 'P')
+            {
+                data->p_x = x;
+                data->p_y = y;
+                return (1);
+            }
+            x++;
+        }
+        y++;
+    }
+    return (0);
+}
