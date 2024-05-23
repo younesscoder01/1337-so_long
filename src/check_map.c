@@ -6,7 +6,7 @@
 /*   By: ysahraou <ysahraou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 15:05:46 by ysahraou          #+#    #+#             */
-/*   Updated: 2024/05/21 15:57:58 by ysahraou         ###   ########.fr       */
+/*   Updated: 2024/05/23 10:28:16 by ysahraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void flood_fill(char **map, int x, int y, int map_height, int map_widht)
 {
     if (x < 0 || y < 0 || x >= map_widht || y >= map_height)
         return;
-    if ('1' == map[y][x] || map[y][x] == 'G')
+    if ('1' == map[y][x] || map[y][x] == 'G' || map[y][x] == 'E')
         return;
     map[y][x] = 'G';
     flood_fill(map, x + 1, y, map_height, map_widht);
@@ -87,7 +87,7 @@ int check_f(char **map)
         x = 0;
         while (map[y][x])
         {
-            if (map[y][x] == 'P' || map[y][x] == 'C' || map[y][x] == 'E')
+            if (map[y][x] == 'P' || map[y][x] == 'C')
                return (1);
             x++;
         }
@@ -96,7 +96,7 @@ int check_f(char **map)
     return (0);
 }
 
-int get_p_xy(char **map, t_param *data)
+void get_p_xy(char **map, t_param *data)
 {
     int x;
     int y;
@@ -111,11 +111,14 @@ int get_p_xy(char **map, t_param *data)
             {
                 data->p_x = x;
                 data->p_y = y;
-                return (1);
+            }
+            if (map[y][x] == 'E')
+            {
+                data->e_x = x;
+                data->e_y = y;
             }
             x++;
         }
         y++;
     }
-    return (0);
 }

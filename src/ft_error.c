@@ -6,7 +6,7 @@
 /*   By: ysahraou <ysahraou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 11:27:32 by ysahraou          #+#    #+#             */
-/*   Updated: 2024/05/21 17:52:34 by ysahraou         ###   ########.fr       */
+/*   Updated: 2024/05/22 19:06:44 by ysahraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,20 @@ void free_all_imgs(t_param *param)
     mlx_destroy_image(param->mlx_ptr, param->wall);
     mlx_destroy_image(param->mlx_ptr, param->floor);
     mlx_destroy_image(param->mlx_ptr, param->exit);
+    mlx_destroy_image(param->mlx_ptr, param->exit_m);
     mlx_destroy_image(param->mlx_ptr, param->collectible);
     mlx_destroy_image(param->mlx_ptr, param->player);
-    mlx_destroy_window(param->mlx_ptr, param->mlx_win);
-    //mlx_destroy_display(param->mlx_ptr);
-    //free(param->mlx_ptr);
+    mlx_destroy_image(param->mlx_ptr, param->player_left);
+    //mlx_destroy_window(param->mlx_ptr, param->mlx_win);
+    mlx_destroy_display(param->mlx_ptr);
+    free(param->mlx_ptr);
     ft_free(param->map);
     free(param);
 }
 
-void ft_error_exit(t_param *param)
+void ft_error_exit(void)
 {
     write(2, "Error\n", 6);
-    free_all_imgs(param);
-    ft_free(param->map);
     exit(1);
 }
 

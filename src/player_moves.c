@@ -6,7 +6,7 @@
 /*   By: ysahraou <ysahraou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 19:16:16 by ysahraou          #+#    #+#             */
-/*   Updated: 2024/05/21 16:30:27 by ysahraou         ###   ########.fr       */
+/*   Updated: 2024/05/23 10:17:05 by ysahraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,38 +20,28 @@ int	key_p(int keycode, void *param)
 	if (65307 == keycode)
 	{
 		mlx_destroy_window(param_1->mlx_ptr, param_1->mlx_win);
+		free_all_imgs(param_1);
 		exit(0);
 	}
-	else if ((65361 == keycode || 97 == keycode)
-		&& (param_1->map[param_1->p_y][param_1->p_x - 1] != '1'
-			&& ((param_1->map[param_1->p_y][param_1->p_x - 1] != 'E')
-				|| param_1->coin_c == 0)))
+	else if (check_move(keycode, param_1) == 1)
 		move_left(param_1);
-	else if ((65362 == keycode || 119 == keycode) && (param_1->map[param_1->p_y
-			- 1][param_1->p_x] != '1' && ((param_1->map[param_1->p_y
-					- 1][param_1->p_x] != 'E') || param_1->coin_c == 0)))
+	else if (check_move(keycode, param_1) == 2)
 		move_up(param_1);
-	else if ((65363 == keycode || 100 == keycode)
-		&& (param_1->map[param_1->p_y][param_1->p_x + 1] != '1'
-			&& ((param_1->map[param_1->p_y][param_1->p_x + 1] != 'E')
-				|| param_1->coin_c == 0)))
+	else if (check_move(keycode, param_1) == 3)
 		move_right(param_1);
-	else if ((65364 == keycode || 115 == keycode) && (param_1->map[param_1->p_y
-			+ 1][param_1->p_x] != '1' && ((param_1->map[param_1->p_y
-					+ 1][param_1->p_x] != 'E') || param_1->coin_c == 0)))
+	else if (check_move(keycode, param_1) == 4)
 		move_down(param);
 	if (0 == param_1->coin_c)
 	{
 		mlx_put_image_to_window(param_1->mlx_ptr, param_1->mlx_win,
 			param_1->exit_m, param_1->exit_x * 34, param_1->exit_y * 34);
 	}
-	printf("==>%i\n", param_1->p_moves);
 	return (0);
 }
 
 void	move_left(t_param *param)
 {
-	mlx_put_image_to_window(param->mlx_ptr, param->mlx_win, param->player,
+	mlx_put_image_to_window(param->mlx_ptr, param->mlx_win, param->player_left,
 		(param->p_x - 1) * 34, param->p_y * 34);
 	mlx_put_image_to_window(param->mlx_ptr, param->mlx_win, param->floor,
 		param->p_x * 34, param->p_y * 34);
@@ -68,6 +58,7 @@ void	move_left(t_param *param)
 	}
 	param->p_x--;
 	param->p_moves++;
+	printf_moves(param);
 }
 
 void	move_up(t_param *param)
@@ -89,6 +80,7 @@ void	move_up(t_param *param)
 	}
 	param->p_y--;
 	param->p_moves++;
+	printf_moves(param);
 }
 
 void	move_right(t_param *param)
@@ -110,6 +102,7 @@ void	move_right(t_param *param)
 	}
 	param->p_x++;
 	param->p_moves++;
+	printf_moves(param);
 }
 
 void	move_down(t_param *param)
@@ -131,4 +124,5 @@ void	move_down(t_param *param)
 	}
 	param->p_y++;
 	param->p_moves++;
+	printf_moves(param);
 }
