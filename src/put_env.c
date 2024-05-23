@@ -6,7 +6,7 @@
 /*   By: ysahraou <ysahraou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 10:16:00 by ysahraou          #+#    #+#             */
-/*   Updated: 2024/05/21 15:32:08 by ysahraou         ###   ########.fr       */
+/*   Updated: 2024/05/23 21:14:32 by ysahraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,9 @@ void	check_and_put(char **map, void *mlx_ptr, void *mlx_win, t_env *env)
 {
 	if (map[env->y][env->x] == '1')
 		mlx_put_image_to_window(mlx_ptr, mlx_win, env->imgs->wall, env->x * 34,
+			env->y * 34);
+	else if (map[env->y][env->x] == 'B')
+		mlx_put_image_to_window(mlx_ptr, mlx_win, env->imgs->bat, env->x * 34,
 			env->y * 34);
 	else if (map[env->y][env->x] == '0')
 		mlx_put_image_to_window(mlx_ptr, mlx_win, env->imgs->floor, env->x * 34,

@@ -6,7 +6,7 @@
 /*   By: ysahraou <ysahraou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 15:15:09 by ysahraou          #+#    #+#             */
-/*   Updated: 2024/05/23 10:45:56 by ysahraou         ###   ########.fr       */
+/*   Updated: 2024/05/23 21:10:37 by ysahraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,53 @@ int check_exit(char	**map_flood, t_param	*param)
 	else if (map_flood[param->e_y+1][param->e_x] == 'G' || map_flood[param->e_y-1][param->e_x] == 'G')
 		return (0);
 	return (1);
+}
+
+int no_other_char(char	**map)
+{
+	int x;
+	int y;
+	
+	y = 0;
+	while (map[y])
+	{
+		x = 0;
+		while (map[y][x] != '\n')
+		{
+			if (map[y][x] != '1' && map[y][x] != '0' && map[y][x] != 'E' && map[y][x] != 'C' && map[y][x] != 'P')
+				return (0);
+			x++;
+		}
+		y++;
+	}
+	return (1);
+}
+
+
+int	ft_strlen_map(const char *s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i] != '\n' || s[i] != '\0')
+		i++;
+	return (i);
+}
+
+int check_len(char **map)
+{
+	int len;
+	int y;
+
+	len = ft_strlen(map[0]);
+	y = 0;
+	while (map[y])
+	{
+		if (len != ft_strlen_map(map[y]))
+			return (1);
+		y++;
+	}
+	return (0);
 }
 
 void check_flood_fill(t_param	*param, char *path)

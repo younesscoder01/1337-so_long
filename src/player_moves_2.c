@@ -6,7 +6,7 @@
 /*   By: ysahraou <ysahraou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 09:54:48 by ysahraou          #+#    #+#             */
-/*   Updated: 2024/05/23 10:11:07 by ysahraou         ###   ########.fr       */
+/*   Updated: 2024/05/23 21:26:40 by ysahraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ void printf_moves(t_param *param)
 {
     mlx_put_image_to_window(param->mlx_ptr, param->mlx_win, param->wall, 0, 0);
 	mlx_put_image_to_window(param->mlx_ptr, param->mlx_win, param->wall, 34, 0);
-	mlx_string_put(param->mlx_ptr, param->mlx_win, 2, 20, 0XFF0000, "Moves : ");
+	mlx_string_put(param->mlx_ptr, param->mlx_win, 2, 20, 0XFFFFFF, "Moves : ");
 	param->str_moves = ft_itoa(param->p_moves);
-	mlx_string_put(param->mlx_ptr, param->mlx_win, 50, 20, 0XFF0000, param->str_moves);
+	mlx_string_put(param->mlx_ptr, param->mlx_win, 50, 20, 0XFFFFFF, param->str_moves);
 	free(param->str_moves);
 }
 
@@ -43,4 +43,21 @@ int check_move(int keycode, t_param *param)
 					+ 1][param->p_x] != 'E') || param->coin_c == 0)))
 		return (4);
     return (0);
+}
+
+void game_over(t_param *param)
+{
+	mlx_destroy_window(param->mlx_ptr, param->mlx_win);
+	write(1, "Game Over\n", 10);
+	free_all_imgs(param);
+	exit(0);
+}
+
+
+void you_win(t_param *param)
+{
+	mlx_destroy_window(param->mlx_ptr, param->mlx_win);
+	free_all_imgs(param);
+	write(1, "You Win\n", 8);
+	exit(0);
 }

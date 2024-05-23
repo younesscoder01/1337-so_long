@@ -6,7 +6,7 @@
 /*   By: ysahraou <ysahraou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 19:16:16 by ysahraou          #+#    #+#             */
-/*   Updated: 2024/05/23 10:17:05 by ysahraou         ###   ########.fr       */
+/*   Updated: 2024/05/23 21:27:14 by ysahraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,12 +50,10 @@ void	move_left(t_param *param)
 		param->coin_c--;
 		param->map[param->p_y][param->p_x - 1] = '0';
 	}
+	if (param->map[param->p_y][param->p_x - 1] == 'B')
+		game_over(param);
 	if (param->map[param->p_y][param->p_x - 1] == 'E' && 0 == param->coin_c)
-	{
-		mlx_destroy_window(param->mlx_ptr, param->mlx_win);
-		free_all_imgs(param);
-		exit(0);
-	}
+		you_win(param);
 	param->p_x--;
 	param->p_moves++;
 	printf_moves(param);
@@ -72,12 +70,10 @@ void	move_up(t_param *param)
 		param->coin_c--;
 		param->map[param->p_y - 1][param->p_x] = '0';
 	}
+	if (param->map[param->p_y - 1][param->p_x] == 'B')
+		game_over(param);
 	if (param->map[param->p_y - 1][param->p_x] == 'E' && 0 == param->coin_c)
-	{
-		mlx_destroy_window(param->mlx_ptr, param->mlx_win);
-		free_all_imgs(param);
-		exit(0);
-	}
+		you_win(param);
 	param->p_y--;
 	param->p_moves++;
 	printf_moves(param);
@@ -94,12 +90,10 @@ void	move_right(t_param *param)
 		param->coin_c--;
 		param->map[param->p_y][param->p_x + 1] = '0';
 	}
+	if (param->map[param->p_y][param->p_x + 1] == 'B')
+		game_over(param);
 	if (param->map[param->p_y][param->p_x + 1] == 'E' && 0 == param->coin_c)
-	{
-		mlx_destroy_window(param->mlx_ptr, param->mlx_win);
-		free_all_imgs(param);
-		exit(0);
-	}
+		you_win(param);
 	param->p_x++;
 	param->p_moves++;
 	printf_moves(param);
@@ -116,12 +110,10 @@ void	move_down(t_param *param)
 		param->coin_c--;
 		param->map[param->p_y + 1][param->p_x] = '0';
 	}
+	if (param->map[param->p_y][param->p_x + 1] == 'B')
+		game_over(param);
 	if (param->map[param->p_y + 1][param->p_x] == 'E' && 0 == param->coin_c)
-	{
-		mlx_destroy_window(param->mlx_ptr, param->mlx_win);
-		free_all_imgs(param);
-		exit(0);
-	}
+		you_win(param);
 	param->p_y++;
 	param->p_moves++;
 	printf_moves(param);

@@ -6,7 +6,7 @@
 /*   By: ysahraou <ysahraou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 11:27:32 by ysahraou          #+#    #+#             */
-/*   Updated: 2024/05/22 19:06:44 by ysahraou         ###   ########.fr       */
+/*   Updated: 2024/05/23 11:11:51 by ysahraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,20 @@ void free_all_imgs(t_param *param)
 
 void ft_error_exit(void)
 {
-    write(2, "Error\n", 6);
+    int ret;
+    
+    ret = write(2, "Error\n", 6);
+    (void)ret;
     exit(1);
 }
 
 
 void ft_error_wall(t_param *param)
 {
-    write(2, "Error\n", 6);
+    int ret;
+    
+    ret = write(2, "Error\n", 6);
+    (void)ret;
     ft_free(param->map);
     free(param);
     exit(1);

@@ -22,7 +22,7 @@ $(NAME): $(OBJ)
 	@echo "Done✅"
 	@echo "Linking...⏳"
 	@$(CC) $(CFLAGS) $(OBJ) $(SRC_LIBFT)/libft.a -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
-	@echo "Youre $(NAME) 🕹️  is ready"
+	@echo "Your $(NAME) 🕹️  is ready"
 
 
 clean:

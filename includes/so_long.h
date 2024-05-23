@@ -6,7 +6,7 @@
 /*   By: ysahraou <ysahraou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 10:20:50 by ysahraou          #+#    #+#             */
-/*   Updated: 2024/05/23 10:31:41 by ysahraou         ###   ########.fr       */
+/*   Updated: 2024/05/23 21:26:48 by ysahraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,14 @@
 # include <stdlib.h>
 # include <fcntl.h>
 #include <stdio.h>
+
 typedef struct	s_param {
 	int map_height;
 	int map_widht;
 	int		img_widht;
 	int		img_height;
 	void	*wall;
+	void	*bat;
 	void	*player;
 	void	*player_left;
 	int		p_moves;
@@ -81,6 +83,10 @@ void allocation(t_param	*param);
 void check_flood_fill(t_param	*param, char *argv);
 void	ft_free(char **arr);
 
+int no_other_char(char	**map);
+int check_len(char **map);
 void printf_moves(t_param *param);
 int check_move(int keycode, t_param *param);
+void game_over(t_param *param);
+void you_win(t_param *param);
 #endif
