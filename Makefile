@@ -2,6 +2,7 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror -g
 SRC = src/so_long.c  src/put_env.c src/player_moves.c src_gnl/get_next_line.c src_gnl/get_next_line_utils.c \
 		src/check_map.c src/map_utils.c src/ft_error.c src/allocation.c src/check_map_2.c src/player_moves_2.c \
+		src/some_utils.c src/free_all.c
 
 SRC_LIBFT = libft
 OBJ = $(SRC:.c=.o)
