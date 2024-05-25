@@ -6,7 +6,7 @@
 /*   By: ysahraou <ysahraou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 15:15:09 by ysahraou          #+#    #+#             */
-/*   Updated: 2024/05/25 17:58:52 by ysahraou         ###   ########.fr       */
+/*   Updated: 2024/05/25 18:18:41 by ysahraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,6 @@ int	check_len(char **map)
 	y = 0;
 	while (map[y])
 	{
-		printf("%d\n", ft_strlen_map(map[y]));
 		if (len != ft_strlen_map(map[y]))
 			return (1);
 		y++;
