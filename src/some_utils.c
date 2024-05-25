@@ -1,27 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error.c                                         :+:      :+:    :+:   */
+/*   some_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ysahraou <ysahraou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/21 11:27:32 by ysahraou          #+#    #+#             */
-/*   Updated: 2024/05/25 14:41:08 by ysahraou         ###   ########.fr       */
+/*   Created: 2024/05/25 13:31:42 by ysahraou          #+#    #+#             */
+/*   Updated: 2024/05/25 13:33:53 by ysahraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-void	ft_error_exit(void)
+int	close_win(t_param *param)
 {
-	write(2, "Error\n", 6);
-	exit(1);
-}
-
-void	ft_error_map(t_param *param)
-{
-	write(2, "Error\n", 6);
-	ft_free(param->map);
-	free(param);
-	exit(1);
+	mlx_destroy_window(param->mlx_ptr, param->mlx_win);
+	free_all_imgs(param);
+	exit(0);
 }

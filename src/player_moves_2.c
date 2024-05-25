@@ -12,19 +12,20 @@
 
 #include "../includes/so_long.h"
 
-void printf_moves(t_param *param)
+void	printf_moves(t_param *param)
 {
-    mlx_put_image_to_window(param->mlx_ptr, param->mlx_win, param->wall, 0, 0);
+	mlx_put_image_to_window(param->mlx_ptr, param->mlx_win, param->wall, 0, 0);
 	mlx_put_image_to_window(param->mlx_ptr, param->mlx_win, param->wall, 34, 0);
 	mlx_string_put(param->mlx_ptr, param->mlx_win, 2, 20, 0XFFFFFF, "Moves : ");
 	param->str_moves = ft_itoa(param->p_moves);
-	mlx_string_put(param->mlx_ptr, param->mlx_win, 50, 20, 0XFFFFFF, param->str_moves);
+	mlx_string_put(param->mlx_ptr, param->mlx_win, 50, 20, 0XFFFFFF,
+		param->str_moves);
 	free(param->str_moves);
 }
 
-int check_move(int keycode, t_param *param)
+int	check_move(int keycode, t_param *param)
 {
-    if ((65361 == keycode || 97 == keycode)
+	if ((65361 == keycode || 97 == keycode)
 		&& (param->map[param->p_y][param->p_x - 1] != '1'
 			&& ((param->map[param->p_y][param->p_x - 1] != 'E')
 				|| param->coin_c == 0)))
@@ -42,10 +43,10 @@ int check_move(int keycode, t_param *param)
 			+ 1][param->p_x] != '1' && ((param->map[param->p_y
 					+ 1][param->p_x] != 'E') || param->coin_c == 0)))
 		return (4);
-    return (0);
+	return (0);
 }
 
-void game_over(t_param *param)
+void	game_over(t_param *param)
 {
 	mlx_destroy_window(param->mlx_ptr, param->mlx_win);
 	write(1, "Game Over\n", 10);
@@ -53,8 +54,7 @@ void game_over(t_param *param)
 	exit(0);
 }
 
-
-void you_win(t_param *param)
+void	you_win(t_param *param)
 {
 	mlx_destroy_window(param->mlx_ptr, param->mlx_win);
 	free_all_imgs(param);
