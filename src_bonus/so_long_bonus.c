@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   so_long_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ysahraou <ysahraou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 10:20:41 by ysahraou          #+#    #+#             */
-/*   Updated: 2024/05/25 21:09:43 by ysahraou         ###   ########.fr       */
+/*   Updated: 2024/05/25 21:32:50 by ysahraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "../includes/so_long_bonus.h"
 
 int	main(int argc, char *argv[])
 {
@@ -33,6 +33,8 @@ int	main(int argc, char *argv[])
 	check_flood_fill(param, argv[1]);
 	allocation(param);
 	put_env(param->mlx_ptr, param->mlx_win, param);
+	mlx_string_put(param->mlx_ptr, param->mlx_win, 2, 20, 0XFFFFFF, "Moves : ");
+	mlx_string_put(param->mlx_ptr, param->mlx_win, 50, 20, 0XFFFFFF, "0");
 	mlx_hook(param->mlx_win, 2, 1L<<0, key_p, param);
 	mlx_hook(param->mlx_win, 17, 0L, close_win, param);
 	mlx_loop(param->mlx_ptr);

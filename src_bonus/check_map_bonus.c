@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_map.c                                        :+:      :+:    :+:   */
+/*   check_map_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ysahraou <ysahraou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 15:05:46 by ysahraou          #+#    #+#             */
-/*   Updated: 2024/05/25 21:26:50 by ysahraou         ###   ########.fr       */
+/*   Updated: 2024/05/25 21:32:31 by ysahraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "../includes/so_long_bonus.h"
 
 int	check_file(char *file_name)
 {
@@ -64,7 +64,8 @@ void	flood_fill(char **map, int x, int y, t_param *param)
 {
 	if (x < 0 || y < 0 || x >= param->map_widht || y >= param->map_height)
 		return ;
-	if ('1' == map[y][x] || map[y][x] == 'G' || map[y][x] == 'E')
+	if ('1' == map[y][x] || map[y][x] == 'G' || map[y][x] == 'E'
+		|| 'B' == map[y][x])
 		return ;
 	map[y][x] = 'G';
 	flood_fill(map, x + 1, y, param);

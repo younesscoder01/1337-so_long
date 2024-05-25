@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   player_moves_2.c                                   :+:      :+:    :+:   */
+/*   player_moves_2_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ysahraou <ysahraou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 09:54:48 by ysahraou          #+#    #+#             */
-/*   Updated: 2024/05/25 21:21:27 by ysahraou         ###   ########.fr       */
+/*   Updated: 2024/05/25 21:32:41 by ysahraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "../includes/so_long_bonus.h"
 
 void	printf_moves(t_param *param)
 {
+	mlx_put_image_to_window(param->mlx_ptr, param->mlx_win, param->wall, 0, 0);
+	mlx_put_image_to_window(param->mlx_ptr, param->mlx_win, param->wall, 34, 0);
+	mlx_string_put(param->mlx_ptr, param->mlx_win, 2, 20, 0XFFFFFF, "Moves : ");
 	param->str_moves = ft_itoa(param->p_moves);
-	write(1, "Moves : ", 8);
-	write(1, param->str_moves, ft_strlen(param->str_moves));
-	write(1, "\n", 1);
+	mlx_string_put(param->mlx_ptr, param->mlx_win, 50, 20, 0XFFFFFF,
+		param->str_moves);
+	free(param->str_moves);
 }
 
 int	check_move(int keycode, t_param *param)
@@ -41,6 +44,14 @@ int	check_move(int keycode, t_param *param)
 					+ 1][param->p_x] != 'E') || param->coin_c == 0)))
 		return (4);
 	return (0);
+}
+
+void	game_over(t_param *param)
+{
+	mlx_destroy_window(param->mlx_ptr, param->mlx_win);
+	write(1, "Game Over\n", 10);
+	free_all_imgs(param);
+	exit(0);
 }
 
 void	you_win(t_param *param)

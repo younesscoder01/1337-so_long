@@ -6,7 +6,7 @@
 /*   By: ysahraou <ysahraou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 10:20:50 by ysahraou          #+#    #+#             */
-/*   Updated: 2024/05/25 21:15:04 by ysahraou         ###   ########.fr       */
+/*   Updated: 2024/05/25 21:14:51 by ysahraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct s_param
 	int		img_widht;
 	int		img_height;
 	void	*wall;
+	void	*bat;
 	void	*player;
 	void	*player_left;
 	int		p_moves;

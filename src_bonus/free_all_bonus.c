@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_all.c                                         :+:      :+:    :+:   */
+/*   free_all_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ysahraou <ysahraou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/25 14:09:13 by ysahraou          #+#    #+#             */
-/*   Updated: 2024/05/25 21:19:09 by ysahraou         ###   ########.fr       */
+/*   Updated: 2024/05/25 21:32:33 by ysahraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "../includes/so_long_bonus.h"
 
 void	free_all_imgs(t_param *param)
 {
@@ -28,6 +28,8 @@ void	free_all_imgs(t_param *param)
 		mlx_destroy_image(param->mlx_ptr, param->player);
 	if (param->player_left)
 		mlx_destroy_image(param->mlx_ptr, param->player_left);
+	if (param->bat)
+		mlx_destroy_image(param->mlx_ptr, param->bat);
 	if (param->mlx_ptr)
 	{
 		mlx_destroy_display(param->mlx_ptr);

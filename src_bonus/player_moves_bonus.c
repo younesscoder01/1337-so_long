@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   player_moves.c                                     :+:      :+:    :+:   */
+/*   player_moves_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ysahraou <ysahraou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 19:16:16 by ysahraou          #+#    #+#             */
-/*   Updated: 2024/05/25 21:15:35 by ysahraou         ###   ########.fr       */
+/*   Updated: 2024/05/25 21:32:44 by ysahraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "../includes/so_long_bonus.h"
 
 int	key_p(int keycode, void *param)
 {
@@ -50,6 +50,8 @@ void	move_left(t_param *param)
 		param->coin_c--;
 		param->map[param->p_y][param->p_x - 1] = '0';
 	}
+	if (param->map[param->p_y][param->p_x - 1] == 'B')
+		game_over(param);
 	if (param->map[param->p_y][param->p_x - 1] == 'E' && 0 == param->coin_c)
 		you_win(param);
 	param->p_x--;
@@ -68,6 +70,8 @@ void	move_up(t_param *param)
 		param->coin_c--;
 		param->map[param->p_y - 1][param->p_x] = '0';
 	}
+	if (param->map[param->p_y - 1][param->p_x] == 'B')
+		game_over(param);
 	if (param->map[param->p_y - 1][param->p_x] == 'E' && 0 == param->coin_c)
 		you_win(param);
 	param->p_y--;
@@ -86,6 +90,8 @@ void	move_right(t_param *param)
 		param->coin_c--;
 		param->map[param->p_y][param->p_x + 1] = '0';
 	}
+	if (param->map[param->p_y][param->p_x + 1] == 'B')
+		game_over(param);
 	if (param->map[param->p_y][param->p_x + 1] == 'E' && 0 == param->coin_c)
 		you_win(param);
 	param->p_x++;
@@ -104,6 +110,8 @@ void	move_down(t_param *param)
 		param->coin_c--;
 		param->map[param->p_y + 1][param->p_x] = '0';
 	}
+	if (param->map[param->p_y][param->p_x + 1] == 'B')
+		game_over(param);
 	if (param->map[param->p_y + 1][param->p_x] == 'E' && 0 == param->coin_c)
 		you_win(param);
 	param->p_y++;

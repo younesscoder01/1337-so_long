@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   put_env.c                                          :+:      :+:    :+:   */
+/*   put_env_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ysahraou <ysahraou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 10:16:00 by ysahraou          #+#    #+#             */
-/*   Updated: 2024/05/25 21:13:26 by ysahraou         ###   ########.fr       */
+/*   Updated: 2024/05/25 21:32:47 by ysahraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "../includes/so_long_bonus.h"
 
 void	put_player(void *mlx_ptr, void *mlx_win, t_env *env)
 {
@@ -39,6 +39,9 @@ void	check_and_put(char **map, void *mlx_ptr, void *mlx_win, t_env *env)
 {
 	if (map[env->y][env->x] == '1')
 		mlx_put_image_to_window(mlx_ptr, mlx_win, env->imgs->wall, env->x * 34,
+			env->y * 34);
+	else if (map[env->y][env->x] == 'B')
+		mlx_put_image_to_window(mlx_ptr, mlx_win, env->imgs->bat, env->x * 34,
 			env->y * 34);
 	else if (map[env->y][env->x] == '0')
 		mlx_put_image_to_window(mlx_ptr, mlx_win, env->imgs->floor, env->x * 34,

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_map_2.c                                      :+:      :+:    :+:   */
+/*   check_map_2_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ysahraou <ysahraou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 15:15:09 by ysahraou          #+#    #+#             */
-/*   Updated: 2024/05/25 21:11:07 by ysahraou         ###   ########.fr       */
+/*   Updated: 2024/05/25 21:32:27 by ysahraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "../includes/so_long_bonus.h"
 
 void	ft_free(char **arr)
 {
@@ -48,7 +48,7 @@ int	no_other_char(char **map)
 		while (map[y][x] != '\n' && map[y][x] != '\0')
 		{
 			if (map[y][x] != '1' && map[y][x] != '0' && map[y][x] != 'E'
-				&& map[y][x] != 'C' && map[y][x] != 'P')
+				&& map[y][x] != 'C' && map[y][x] != 'P' && map[y][x] != 'B')
 				return (1);
 			x++;
 		}
