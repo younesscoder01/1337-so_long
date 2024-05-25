@@ -6,7 +6,7 @@
 /*   By: ysahraou <ysahraou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 15:15:09 by ysahraou          #+#    #+#             */
-/*   Updated: 2024/05/25 16:37:58 by ysahraou         ###   ########.fr       */
+/*   Updated: 2024/05/25 17:58:52 by ysahraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	no_other_char(char **map)
 	while (map[y])
 	{
 		x = 0;
-		while (map[y][x] != '\n')
+		while (map[y][x] != '\n' && map[y][x] != '\0')
 		{
 			if (map[y][x] != '1' && map[y][x] != '0' && map[y][x] != 'E'
 				&& map[y][x] != 'C' && map[y][x] != 'P' && map[y][x] != 'B')
@@ -106,6 +106,7 @@ int	check_len(char **map)
 	y = 0;
 	while (map[y])
 	{
+		printf("%d\n", ft_strlen_map(map[y]));
 		if (len != ft_strlen_map(map[y]))
 			return (1);
 		y++;
