@@ -6,7 +6,7 @@
 /*   By: ysahraou <ysahraou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 10:20:50 by ysahraou          #+#    #+#             */
-/*   Updated: 2024/05/25 15:13:26 by ysahraou         ###   ########.fr       */
+/*   Updated: 2024/05/25 16:05:16 by ysahraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,14 @@ typedef struct s_param
 	char	*str_moves;
 }			t_param;
 
+typedef struct s_allowed
+{
+	int e;
+	int c;
+	int p;
+}				t_allowed;
+
+
 typedef struct s_env
 {
 	int		x;
@@ -90,4 +98,5 @@ int			check_move(int keycode, t_param *param);
 void		game_over(t_param *param);
 void		you_win(t_param *param);
 int			close_win(t_param *param);
+int			only_allowed(char **map);
 #endif

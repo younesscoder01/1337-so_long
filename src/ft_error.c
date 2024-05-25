@@ -6,7 +6,7 @@
 /*   By: ysahraou <ysahraou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 11:27:32 by ysahraou          #+#    #+#             */
-/*   Updated: 2024/05/25 14:41:08 by ysahraou         ###   ########.fr       */
+/*   Updated: 2024/05/25 16:23:55 by ysahraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,5 @@ void	ft_error_map(t_param *param)
 	write(2, "Error\n", 6);
 	ft_free(param->map);
 	free(param);
-	exit(1);
+	exit(13);
 }

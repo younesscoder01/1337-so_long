@@ -6,7 +6,7 @@
 /*   By: ysahraou <ysahraou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 15:15:09 by ysahraou          #+#    #+#             */
-/*   Updated: 2024/05/25 15:15:05 by ysahraou         ###   ########.fr       */
+/*   Updated: 2024/05/25 16:37:58 by ysahraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,42 @@ int	no_other_char(char **map)
 		while (map[y][x] != '\n')
 		{
 			if (map[y][x] != '1' && map[y][x] != '0' && map[y][x] != 'E'
-				&& map[y][x] != 'C' && map[y][x] != 'P')
-				return (0);
+				&& map[y][x] != 'C' && map[y][x] != 'P' && map[y][x] != 'B')
+				return (1);
 			x++;
 		}
 		y++;
 	}
+	return (0);
+}
+
+int	only_allowed(char **map)
+{
+	int	x;
+	int	y;
+	t_allowed allowed;
+	allowed.c = 0;
+	allowed.e = 0;
+	allowed.p = 0;
+
+	y = 0;
+	while (map[y])
+	{
+		x = 0;
+		while (map[y][x])
+		{
+			if (map[y][x] == 'E')
+				allowed.e++;
+			if (map[y][x] == 'C')
+				allowed.c++;
+			if (map[y][x] == 'P')
+				allowed.p++;
+			x++;
+		}
+		y++;
+	}
+	if (allowed.c >= 1 && allowed.e == 1 && allowed.p == 1)
+		return (0);
 	return (1);
 }
 
@@ -62,7 +92,7 @@ int	ft_strlen_map(const char *s)
 	int	i;
 
 	i = 0;
-	while (s[i] != '\n' || s[i] != '\0')
+	while (s[i] != '\n' && s[i] != '\0')
 		i++;
 	return (i);
 }
@@ -72,7 +102,7 @@ int	check_len(char **map)
 	int	len;
 	int	y;
 
-	len = ft_strlen(map[0]);
+	len = ft_strlen_map(map[0]);
 	y = 0;
 	while (map[y])
 	{
@@ -97,7 +127,7 @@ void	check_flood_fill(t_param *param, char *path)
 		ft_free(param->map);
 		free(param);
 		write(2, "Error\n", 6);
-		exit(1);
+		exit(12);
 	}
 	ft_free(map_flood);
 }
