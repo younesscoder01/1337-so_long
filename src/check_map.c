@@ -6,7 +6,7 @@
 /*   By: ysahraou <ysahraou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 15:05:46 by ysahraou          #+#    #+#             */
-/*   Updated: 2024/05/25 21:26:50 by ysahraou         ###   ########.fr       */
+/*   Updated: 2024/05/26 13:23:27 by ysahraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	check_file(char *file_name)
 		c++;
 	if ('.' == file_name[len--])
 		c++;
-	if (c == 4)
+	if (c == 4 && ft_strlen(file_name) > 4 && '/' != file_name[len])
 		return (1);
 	return (0);
 }
