@@ -6,7 +6,7 @@
 /*   By: ysahraou <ysahraou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 09:54:48 by ysahraou          #+#    #+#             */
-/*   Updated: 2024/05/25 21:21:27 by ysahraou         ###   ########.fr       */
+/*   Updated: 2024/05/26 14:08:43 by ysahraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	printf_moves(t_param *param)
 	param->str_moves = ft_itoa(param->p_moves);
 	write(1, "Moves : ", 8);
 	write(1, param->str_moves, ft_strlen(param->str_moves));
+	free(param->str_moves);
 	write(1, "\n", 1);
 }
 
