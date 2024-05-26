@@ -11,7 +11,7 @@ SRC_LIBFT = libft
 OBJ = $(SRC:.c=.o)
 OBJ_B = $(SRC_B:.c=.o)
 NAME = so_long
-BONUS = so_long_b
+BONUS = so_long_bonus
 RM = rm -rf
 
 %.o: %.c
