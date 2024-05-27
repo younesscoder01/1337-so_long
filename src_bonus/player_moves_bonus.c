@@ -6,7 +6,7 @@
 /*   By: ysahraou <ysahraou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 19:16:16 by ysahraou          #+#    #+#             */
-/*   Updated: 2024/05/25 21:32:44 by ysahraou         ###   ########.fr       */
+/*   Updated: 2024/05/27 12:11:08 by ysahraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ void	move_down(t_param *param)
 		param->coin_c--;
 		param->map[param->p_y + 1][param->p_x] = '0';
 	}
-	if (param->map[param->p_y][param->p_x + 1] == 'B')
+	if (param->map[param->p_y + 1][param->p_x] == 'B')
 		game_over(param);
 	if (param->map[param->p_y + 1][param->p_x] == 'E' && 0 == param->coin_c)
 		you_win(param);
