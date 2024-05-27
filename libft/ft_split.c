@@ -33,7 +33,7 @@ static int	word_count(char const *str, char c)
 	result = 1;
 	i = 0;
 	if (str[0] == c)
-			result = 0;
+		result = 0;
 	while (str[i] != '\0')
 	{
 		if (str[i] == c && str[i + 1] != c && str[i + 1] != '\0')

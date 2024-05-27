@@ -55,7 +55,8 @@ int	cheack_wall(char **map, int map_height, int map_widht)
 			break ;
 		j++;
 	}
-	if (i != map_height || j != map_widht || no_other_char(map) || only_allowed(map))
+	if (i != map_height || j != map_widht || no_other_char(map)
+		|| only_allowed(map))
 		return (0);
 	return (1);
 }

@@ -6,11 +6,19 @@
 /*   By: ysahraou <ysahraou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 10:20:41 by ysahraou          #+#    #+#             */
-/*   Updated: 2024/05/26 14:22:22 by ysahraou         ###   ########.fr       */
+/*   Updated: 2024/05/27 13:24:27 by ysahraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long_bonus.h"
+
+void	t_ckeck(t_param	*param)
+{
+	if (!cheack_wall(param->map, param->map_height, param->map_widht)
+		|| check_len(param->map) || param->map_height > 29
+		|| param->map_widht > 56)
+		ft_error_map(param);
+}
 
 int	main(int argc, char *argv[])
 {
@@ -28,17 +36,13 @@ int	main(int argc, char *argv[])
 	if (param->map[0] == 0)
 		ft_error_map(param);
 	param->map_widht = get_map_widht(param->map[0]);
-	if (!cheack_wall(param->map, param->map_height, param->map_widht) || check_len(param->map) || param->map_height > 29 || param->map_widht > 56)
-		ft_error_map(param);
+	t_ckeck(param);
 	check_flood_fill(param, argv[1]);
 	allocation(param);
 	put_env(param->mlx_ptr, param->mlx_win, param);
 	mlx_string_put(param->mlx_ptr, param->mlx_win, 2, 20, 0XFFFFFF, "Moves : ");
 	mlx_string_put(param->mlx_ptr, param->mlx_win, 50, 20, 0XFFFFFF, "0");
-	mlx_hook(param->mlx_win, 2, 1L<<0, key_p, param);
+	mlx_hook(param->mlx_win, 2, 1L << 0, key_p, param);
 	mlx_hook(param->mlx_win, 17, 0L, close_win, param);
 	mlx_loop(param->mlx_ptr);
 }
-
-
-

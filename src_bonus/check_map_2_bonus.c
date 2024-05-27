@@ -6,35 +6,11 @@
 /*   By: ysahraou <ysahraou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 15:15:09 by ysahraou          #+#    #+#             */
-/*   Updated: 2024/05/25 21:32:27 by ysahraou         ###   ########.fr       */
+/*   Updated: 2024/05/27 13:38:29 by ysahraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long_bonus.h"
-
-void	ft_free(char **arr)
-{
-	int	i;
-
-	i = 0;
-	while (arr[i])
-	{
-		free(arr[i]);
-		i++;
-	}
-	free(arr);
-}
-
-int	check_exit(char **map_flood, t_param *param)
-{
-	if (map_flood[param->e_y][param->e_x + 1] == 'G'
-		|| map_flood[param->e_y][param->e_x - 1] == 'G')
-		return (0);
-	else if (map_flood[param->e_y + 1][param->e_x] == 'G'
-		|| map_flood[param->e_y - 1][param->e_x] == 'G')
-		return (0);
-	return (1);
-}
 
 int	no_other_char(char **map)
 {
@@ -59,28 +35,26 @@ int	no_other_char(char **map)
 
 int	only_allowed(char **map)
 {
-	int	x;
-	int	y;
-	t_allowed allowed;
+	t_allowed	allowed;
+
 	allowed.c = 0;
 	allowed.e = 0;
 	allowed.p = 0;
-
-	y = 0;
-	while (map[y])
+	allowed.y = 0;
+	while (map[allowed.y])
 	{
-		x = 0;
-		while (map[y][x])
+		allowed.x = 0;
+		while (map[allowed.y][allowed.x])
 		{
-			if (map[y][x] == 'E')
+			if (map[allowed.y][allowed.x] == 'E')
 				allowed.e++;
-			if (map[y][x] == 'C')
+			if (map[allowed.y][allowed.x] == 'C')
 				allowed.c++;
-			if (map[y][x] == 'P')
+			if (map[allowed.y][allowed.x] == 'P')
 				allowed.p++;
-			x++;
+			allowed.x++;
 		}
-		y++;
+		allowed.y++;
 	}
 	if (allowed.c >= 1 && allowed.e == 1 && allowed.p == 1)
 		return (0);

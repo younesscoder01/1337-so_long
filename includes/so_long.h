@@ -6,7 +6,7 @@
 /*   By: ysahraou <ysahraou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 10:20:50 by ysahraou          #+#    #+#             */
-/*   Updated: 2024/05/25 21:15:04 by ysahraou         ###   ########.fr       */
+/*   Updated: 2024/05/27 14:13:39 by ysahraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define SO_LONG_H
 
 # include "../libft/libft.h"
-# include "../minilibx-linux/mlx.h"
+# include <mlx.h>
 # include "../src_gnl/get_next_line.h"
 # include <fcntl.h>
 # include <stdio.h>
@@ -50,11 +50,12 @@ typedef struct s_param
 
 typedef struct s_allowed
 {
-	int e;
-	int c;
-	int p;
+	int		e;
+	int		c;
+	int		p;
+	int		x;
+	int		y;
 }				t_allowed;
-
 
 typedef struct s_env
 {
@@ -98,4 +99,5 @@ void		game_over(t_param *param);
 void		you_win(t_param *param);
 int			close_win(t_param *param);
 int			only_allowed(char **map);
+int			check_exit(char **map_flood, t_param *param);
 #endif

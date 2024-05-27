@@ -6,17 +6,14 @@
 /*   By: ysahraou <ysahraou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 14:25:45 by ysahraou          #+#    #+#             */
-/*   Updated: 2024/05/25 21:13:08 by ysahraou         ###   ########.fr       */
+/*   Updated: 2024/05/27 13:07:01 by ysahraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-void	allocation(t_param *param)
+void	allocate_imgs(t_param *param)
 {
-	param->img_widht = 34;
-	param->img_height = 34;
-	param->mlx_ptr = mlx_init();
 	param->wall = mlx_xpm_file_to_image(param->mlx_ptr, "textures/wall_v2.xpm",
 			&param->img_widht, &param->img_height);
 	param->floor = mlx_xpm_file_to_image(param->mlx_ptr,
@@ -31,9 +28,17 @@ void	allocation(t_param *param)
 			"textures/portal_f0.xpm", &param->img_widht, &param->img_height);
 	param->exit_m = mlx_xpm_file_to_image(param->mlx_ptr,
 			"textures/portal_f1.xpm", &param->img_widht, &param->img_height);
-	if (!(param->wall) || !(param->player)
-		|| !(param->player_left) || !(param->floor) || !(param->exit)
-		|| !(param->collectible) || !(param->exit_m) || !(param->mlx_ptr))
+}
+
+void	allocation(t_param *param)
+{
+	param->img_widht = 34;
+	param->img_height = 34;
+	param->mlx_ptr = mlx_init();
+	allocate_imgs(param);
+	if (!(param->wall) || !(param->player) || !(param->player_left)
+		|| !(param->floor) || !(param->exit) || !(param->collectible)
+		|| !(param->exit_m) || !(param->mlx_ptr))
 	{
 		free_all_imgs(param);
 		write(2, "img not found\n", 14);

@@ -6,7 +6,7 @@
 /*   By: ysahraou <ysahraou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 09:54:48 by ysahraou          #+#    #+#             */
-/*   Updated: 2024/05/26 14:09:58 by ysahraou         ###   ########.fr       */
+/*   Updated: 2024/05/27 13:29:28 by ysahraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,20 +27,20 @@ int	check_move(int keycode, t_param *param)
 {
 	if ((65361 == keycode || 97 == keycode)
 		&& (param->map[param->p_y][param->p_x - 1] != '1'
-			&& ((param->map[param->p_y][param->p_x - 1] != 'E')
-				|| param->coin_c == 0)))
+		&& ((param->map[param->p_y][param->p_x - 1] != 'E')
+		|| param->coin_c == 0)))
 		return (1);
 	else if ((65362 == keycode || 119 == keycode) && (param->map[param->p_y
-			- 1][param->p_x] != '1' && ((param->map[param->p_y
+				- 1][param->p_x] != '1' && ((param->map[param->p_y
 					- 1][param->p_x] != 'E') || param->coin_c == 0)))
 		return (2);
 	else if ((65363 == keycode || 100 == keycode)
 		&& (param->map[param->p_y][param->p_x + 1] != '1'
-			&& ((param->map[param->p_y][param->p_x + 1] != 'E')
-				|| param->coin_c == 0)))
+		&& ((param->map[param->p_y][param->p_x + 1] != 'E')
+		|| param->coin_c == 0)))
 		return (3);
 	else if ((65364 == keycode || 115 == keycode) && (param->map[param->p_y
-			+ 1][param->p_x] != '1' && ((param->map[param->p_y
+				+ 1][param->p_x] != '1' && ((param->map[param->p_y
 					+ 1][param->p_x] != 'E') || param->coin_c == 0)))
 		return (4);
 	return (0);

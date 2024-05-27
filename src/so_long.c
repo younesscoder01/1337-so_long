@@ -28,15 +28,14 @@ int	main(int argc, char *argv[])
 	if (param->map[0] == 0)
 		ft_error_map(param);
 	param->map_widht = get_map_widht(param->map[0]);
-	if (!cheack_wall(param->map, param->map_height, param->map_widht) || check_len(param->map) || param->map_height > 29 || param->map_widht > 56)
+	if (!cheack_wall(param->map, param->map_height, param->map_widht)
+		|| check_len(param->map) || param->map_height > 29
+		|| param->map_widht > 56)
 		ft_error_map(param);
 	check_flood_fill(param, argv[1]);
 	allocation(param);
 	put_env(param->mlx_ptr, param->mlx_win, param);
-	mlx_hook(param->mlx_win, 2, 1L<<0, key_p, param);
+	mlx_hook(param->mlx_win, 2, 1L << 0, key_p, param);
 	mlx_hook(param->mlx_win, 17, 0L, close_win, param);
 	mlx_loop(param->mlx_ptr);
 }
-
-
-

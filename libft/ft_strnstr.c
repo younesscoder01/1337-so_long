@@ -25,7 +25,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	{
 		if (ft_strncmp(little, &big[i], ltlen) == 0)
 			return ((char *)&big[i]);
-	i++;
+		i++;
 	}
 	return (NULL);
 }

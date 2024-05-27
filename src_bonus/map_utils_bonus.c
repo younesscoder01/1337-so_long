@@ -6,7 +6,7 @@
 /*   By: ysahraou <ysahraou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 10:48:36 by ysahraou          #+#    #+#             */
-/*   Updated: 2024/05/25 21:32:39 by ysahraou         ###   ########.fr       */
+/*   Updated: 2024/05/27 13:22:47 by ysahraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,9 @@ int	get_map_widht(char *str_map)
 
 void	get_map(char *path, char **map)
 {
-	int map_fd;
-	char *str;
-	int i;
+	int		map_fd;
+	int		i;
+	char	*str;
 
 	i = 0;
 	map_fd = open(path, O_RDONLY);

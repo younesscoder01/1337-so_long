@@ -29,7 +29,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 			*pd++ = *ps++;
 	}
 	else
-	{	
+	{
 		lastpd = (unsigned char *)dest + (n - 1);
 		lastps = (unsigned const char *)src + (n - 1);
 		while (n-- != 0)
